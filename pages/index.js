@@ -1,6 +1,7 @@
 import { Heading, Page } from "@shopify/polaris";
 import React, { useState } from "react";
 
+import ProductList from "../components/ProductList";
 import { Provider, ResourcePicker } from "@shopify/app-bridge-react";
 
 const index = () => {
@@ -11,6 +12,14 @@ const index = () => {
     setProducts(payload.selection);
   }
   return (
+    <>
+      <ResourcePicker
+        resourceType="Product"
+        open={isOpen}
+        onCancel={() => setIsOpen(false)}
+        onSelection={handlerProductSelection}
+      />
+    {products.length > 0 ? (
     <Page
       title="Product Selector"
       primaryAction={{
@@ -18,19 +27,19 @@ const index = () => {
         onAction: () => setIsOpen(true),
       }}
     >
-      {products.map((product) => (
-        <div>{product.title}</div>
-      ))}
-      <Heading>Joshua's Component Crash</Heading>
-      <ResourcePicker
-        resourceType="Product"
-        open={isOpen}
-        onCancel={() => setIsOpen(false)}
-        onSelection={handlerProductSelection}
-      />
-      <ProductList products={products} />
-    </Page>
-  );
+    </Page> ) : (
+    <EmptyState
+    heading="Manage the products you want to display"
+    action={{
+      content="Select products",
+      onAction: () => setIsOpen(true)
+    }} >
+      <p>Select the products you want to use on your banner</p>
+    </EmptyState>
+      
+)},
+   </> 
+   )
 };
-
+{/* <ProductList products={products} /> */}
 export default index;
