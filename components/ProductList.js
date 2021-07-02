@@ -1,4 +1,6 @@
+import { Card, ResourceList } from "@shopify/polaris";
 import React from "react";
+import ProductItem from "./ProductItem";
 
 function ProductList(products) {
   return (
@@ -7,6 +9,7 @@ function ProductList(products) {
         showHeader
         resourceName={{ singular: "Product", plural: "Products" }}
         items={products}
+        renderItem={(product) => <ProductItem product={product} />}
       />
     </Card>
   );
