@@ -1,15 +1,36 @@
 import { Heading, Page } from "@shopify/polaris";
+import React, { useState } from "react";
 
-const Index = () => (
-  <Page
-    title="Product Selector"
-    primaryAction={{
-      content: "Select product",
-      onAction: () => console.log("I have been clicked"),
-    }}
-  >
-    <Heading>Joshua's First Shopify app with Node and React 🎉</Heading>
-  </Page>
-);
+import { Provider, ResourcePicker } from "@shopify/app-bridge-react";
 
-export default Index;
+const index = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [products, setProducts] = useState([]);
+  function handlerProductSelection(payload) {
+    setIsOpen(false);
+    setProducts(payload.selection);
+  }
+  return (
+    <Page
+      title="Product Selector"
+      primaryAction={{
+        content: "Select product",
+        onAction: () => setIsOpen(true),
+      }}
+    >
+      {products.map((product) => (
+        <div>{product.title}</div>
+      ))}
+      <Heading>Joshua's Component Crash</Heading>
+      <ResourcePicker
+        resourceType="Product"
+        open={isOpen}
+        onCancel={() => setIsOpen(false)}
+        onSelection={handlerProductSelection}
+      />
+      <ProductList products={products} />
+    </Page>
+  );
+};
+
+export default index;
