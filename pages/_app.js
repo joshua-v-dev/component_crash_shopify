@@ -57,11 +57,16 @@ class MyApp extends App {
         <Provider
           config={{
             apiKey: API_KEY,
+            // shopOrigin: shopOrigin,
             host: host,
             forceRedirect: true,
           }}
         >
-          <MyProvider Component={Component} {...pageProps} />
+          <MyProvider
+            Component={Component}
+            {...pageProps}
+            // shopOrigin={shopOrigin}
+          />
         </Provider>
       </AppProvider>
     );

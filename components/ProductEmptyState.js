@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, EmptyState } from "@shopify/polaris";
 
-function ProductEmptyState() {
+function ProductEmptyState({ setIsOpen }) {
   return (
     <Card sectioned>
       <EmptyState
