@@ -9,7 +9,9 @@ function ProductList(products) {
         showHeader
         resourceName={{ singular: "Product", plural: "Products" }}
         items={products}
-        renderItem={(product) => <ProductItem product={product} />}
+        renderItem={(product) => {
+          return <ProductItem product={product} />;
+        }}
       />
     </Card>
   );

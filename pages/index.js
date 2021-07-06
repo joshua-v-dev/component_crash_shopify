@@ -1,13 +1,19 @@
-import { Heading, Page } from "@shopify/polaris";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { ResourcePicker } from "@shopify/app-bridge-react";
 
-import ProductList from "../components/ProductList";
-import { Provider, ResourcePicker } from "@shopify/app-bridge-react";
-
-const index = () => {
+function index() {
   const [isOpen, setIsOpen] = useState(false);
   const [products, setProducts] = useState([]);
-  function handlerProductSelection(payload) {
+  useEffect(() => {
+    const ids = product.map((product) => {
+      return {
+        id: product.id,
+      };
+    });
+    setProductsId(ids);
+  }, [products]);
+
+  function handleProductSelection(payload) {
     setIsOpen(false);
     setProducts(payload.selection);
   }
@@ -17,29 +23,17 @@ const index = () => {
         resourceType="Product"
         open={isOpen}
         onCancel={() => setIsOpen(false)}
-        onSelection={handlerProductSelection}
+        onSelection={handleProductSelection}
+        initialSelectionIds={productsId}
       />
-    {products.length > 0 ? (
-    <Page
-      title="Product Selector"
-      primaryAction={{
-        content: "Select product",
-        onAction: () => setIsOpen(true),
-      }}
-    >
-    </Page> ) : (
-    <EmptyState
-    heading="Manage the products you want to display"
-    action={{
-      content="Select products",
-      onAction: () => setIsOpen(true)
-    }} >
-      <p>Select the products you want to use on your banner</p>
-    </EmptyState>
-      
-)},
-   </> 
-   )
-};
-{/* <ProductList products={products} /> */}
+      {products.length > 0 ? (
+        <ProductPage setIsOpen={setIsOpen} products={products} />
+      ) : (
+        <ProductEmptyState setIsOpen={setIsOpen} />
+      )}
+      :
+    </>
+  );
+}
+
 export default index;
