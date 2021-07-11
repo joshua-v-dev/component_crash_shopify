@@ -2,7 +2,11 @@ import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "react-apollo";
 import App from "next/app";
 import { AppProvider } from "@shopify/polaris";
-import { Provider, useAppBridge } from "@shopify/app-bridge-react";
+import {
+  ClientRouter,
+  Provider,
+  useAppBridge,
+} from "@shopify/app-bridge-react";
 import { authenticatedFetch } from "@shopify/app-bridge-utils";
 import { Redirect } from "@shopify/app-bridge/actions";
 import "@shopify/polaris/dist/styles.css";
@@ -51,21 +55,22 @@ function MyProvider(props) {
 
 class MyApp extends App {
   render() {
-    const { Component, pageProps, host } = this.props;
+    const { Component, pageProps, shopOrigin, host } = this.props;
     return (
       <AppProvider i18n={translations}>
         <Provider
           config={{
             apiKey: API_KEY,
-            // shopOrigin: shopOrigin,
+            shopOrigin: shopOrigin,
             host: host,
             forceRedirect: true,
           }}
         >
+          <ClientRouter />
           <MyProvider
             Component={Component}
             {...pageProps}
-            // shopOrigin={shopOrigin}
+            shopOrigin={shopOrigin}
           />
         </Provider>
       </AppProvider>
