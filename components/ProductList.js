@@ -2,7 +2,7 @@ import { Card, ResourceList } from "@shopify/polaris";
 import React from "react";
 import ProductItem from "./ProductItem";
 
-function ProductList(products) {
+function ProductList({ products }) {
   return (
     <Card>
       <ResourceList
