@@ -4,7 +4,7 @@ import ProductEmptyState from "../components/ProductEmptyState";
 import ProductPage from "../components/ProductPage";
 import store from "store-js";
 
-function index({ shopOrigin }) {
+const Index = ({ shopOrigin }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [products, setProducts] = useState([]);
   const [productsId, setProductsId] = useState([]);
@@ -47,6 +47,6 @@ function index({ shopOrigin }) {
       :
     </>
   );
-}
+};
 
-export default index;
+export default Index;
