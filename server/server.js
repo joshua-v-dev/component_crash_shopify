@@ -68,7 +68,7 @@ app.prepare().then(async () => {
     createShopifyAuth({
       async afterAuth(ctx) {
         // Access token and shop available in ctx.state.shopify
-        const { shop, accessToken, scope } = ctx.state.shopify;
+        const { shop, accessToken } = ctx.state.shopify;
 
         ACTIVE_SHOPIFY_SHOPS[shop] = scope;
 
@@ -111,7 +111,7 @@ app.prepare().then(async () => {
   router.post(
     "/graphql",
     verifyRequest({ returnHeader: true }),
-    async (ctx, next) => {
+    async (ctx, _next) => {
       await Shopify.Utils.graphqlProxy(ctx.req, ctx.res);
     }
   );
