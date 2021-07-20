@@ -1,7 +1,7 @@
 import { Layout, Page, TextStyle } from "@shopify/polaris";
 import React from "react";
 
-const InstallApp = () => {
+function install() {
   return (
     <Page>
       <Layout.AnnotatedSection
@@ -21,6 +21,6 @@ const InstallApp = () => {
       </Layout.AnnotatedSection>
     </Page>
   );
-};
+}
 
-export default InstallApp;
+export default install;

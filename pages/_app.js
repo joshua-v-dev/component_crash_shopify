@@ -52,14 +52,13 @@ function MyProvider(props) {
 
 class MyApp extends App {
   render() {
-    const { Component, pageProps, shopOrigin, host } = this.props;
+    const { Component, pageProps, shopOrigin } = this.props;
     return (
       <AppProvider i18n={translations}>
         <Provider
           config={{
             apiKey: API_KEY,
             shopOrigin: shopOrigin,
-            host: host,
             forceRedirect: true,
           }}
         >
@@ -77,7 +76,7 @@ class MyApp extends App {
 
 MyApp.getInitialProps = async ({ ctx }) => {
   return {
-    host: ctx.query.host,
+    shopOrigin: ctx.query.shop,
   };
 };
 

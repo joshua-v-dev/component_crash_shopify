@@ -20,13 +20,13 @@ const FILENAME = "./session.json";
 
 function storeCallback(session) {
   console.log("storeCallback ");
-  fs.writeFileSync("./session.json", JSON.stringify(session));
+  fs.writeFileSync(FILENAME, JSON.stringify(session));
   return true;
 }
 function loadCallback(id) {
   console.log("loadCallback ");
   if (fs.existsSync(FILENAME)) {
-    const sessionResult = fs.readFileSync("./session.json", "utf8");
+    const sessionResult = fs.readFileSync(FILENAME, "utf8");
     return Object.assign(new Session(), JSON.parse(sessionResult));
   }
   return false;
@@ -69,7 +69,7 @@ app.prepare().then(async () => {
       async afterAuth(ctx) {
         // Access token and shop available in ctx.state.shopify
         const { shop, accessToken, scope } = ctx.state.shopify;
-        const host = ctx.query.host;
+
         ACTIVE_SHOPIFY_SHOPS[shop] = scope;
 
         const response = await Shopify.Webhooks.Registry.register({
