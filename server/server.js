@@ -23,7 +23,7 @@ function storeCallback(session) {
   fs.writeFileSync(FILENAME, JSON.stringify(session));
   return true;
 }
-function loadCallback(id) {
+function loadCallback(_id) {
   console.log("loadCallback ");
   if (fs.existsSync(FILENAME)) {
     const sessionResult = fs.readFileSync(FILENAME, "utf8");
