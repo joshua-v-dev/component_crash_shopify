@@ -2,6 +2,7 @@
   "name": "shopify-app-node",
   "version": "1.0.0",
   "description": "Shopify's node app for CLI tool",
+  "type": "module",
   "engines": {
     "node": "^14.15.0"
   },
