@@ -74,7 +74,7 @@ class MyApp extends App {
   }
 }
 
-MyApp.getInitialProps = async ({ ctx }) => {
+MyApp.getStaticProps = async ({ ctx }) => {
   return {
     shopOrigin: ctx.query.shop,
   };
