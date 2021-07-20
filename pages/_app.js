@@ -52,7 +52,7 @@ function MyProvider(props) {
 
 class MyApp extends App {
   render() {
-    const { Component, pageProps, shopOrigin } = this.props;
+    const { Component, pageProps, shopOrigin, API_KEY } = this.props;
     return (
       <AppProvider i18n={translations}>
         <Provider

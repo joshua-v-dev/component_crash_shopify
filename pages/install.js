@@ -1,14 +1,15 @@
-import { Layout, Page, TextStyle } from "@shopify/polaris";
+import { Layout, Page, TextStyle, SettingToggle } from "@shopify/polaris";
 import React from "react";
 
 function install() {
+  function handleAction() {}
   return (
     <Page>
       <Layout.AnnotatedSection
         title="Install banner"
         description="Toggle banner installation on your shop"
       >
-        <SectionToggle
+        <SettingToggle
           action={{
             content: "Install",
             onAction: handleAction,
@@ -17,7 +18,7 @@ function install() {
         >
           The banner script is{" "}
           <TextStyle variation="strong">uninstalled</TextStyle>
-        </SectionToggle>
+        </SettingToggle>
       </Layout.AnnotatedSection>
     </Page>
   );

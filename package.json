@@ -2,6 +2,10 @@
   "name": "shopify-app-node",
   "version": "1.0.0",
   "description": "Shopify's node app for CLI tool",
+  "hooks": {
+    "pre-commit": "npm test && npm lint-staged && npm build && unset GIT_DIR && echo $GIT_DIR",
+    "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
+  },
   "scripts": {
     "test": "jest",
     "dev": "cross-env NODE_ENV=development nodemon ./server/index.js --watch ./server/index.js",
@@ -26,7 +30,7 @@
     "@shopify/app-bridge-react": "^2.0.2",
     "@shopify/app-bridge-utils": "^2.0.2",
     "@shopify/koa-shopify-auth": "^4.1.2",
-    "@shopify/polaris": "^6.2.0",
+    "@shopify/polaris": "^6.6.0",
     "apollo-boost": "^0.4.9",
     "cross-env": "^7.0.3",
     "dotenv": "^8.2.0",
@@ -45,7 +49,7 @@
     "react-dom": "^16.14.0",
     "store-js": "^2.0.4",
     "string.prototype.trimend": "^1.0.4",
-    "webpack": "^4.44.1"
+    "webpack": "^4.46.0"
   },
   "devDependencies": {
     "@babel/plugin-transform-runtime": "^7.12.10",
