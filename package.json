@@ -2,16 +2,19 @@
   "name": "shopify-app-node",
   "version": "1.0.0",
   "description": "Shopify's node app for CLI tool",
+  "cacheDirectories": [
+    ".next/cache"
+  ],
   "scripts": {
     "test": "jest",
-    "dev": "cross-env NODE_ENV=development nodemon ./server/index.cjs --watch ./server/index.cjs",
+    "dev": "cross-env NODE_ENV=development nodemon ./server/index.mjs --watch ./server/index.mjs",
     "prebuild": "next telemetry disable",
     "build": "next build",
-    "start": "cross-env NODE_ENV=production node ./server/index.cjs"
+    "start": "cross-env NODE_ENV=production node ./server/index.mjs"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Shopify/shopify-app-node.git"
+    "url": "https://git.heroku.com/jforce.git"
   },
   "author": "Shopify Inc.",
   "license": "MIT",
