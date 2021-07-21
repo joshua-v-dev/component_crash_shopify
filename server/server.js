@@ -1,7 +1,7 @@
 import "@babel/polyfill";
 import dotenv from "dotenv";
 import "isomorphic-fetch";
-import createShopifyAuth, { verifyRequest } from "@shopify/koa-shopify-auth";
+import createShopifyAuth from "@shopify/koa-shopify-auth";
 import Shopify, { ApiVersion } from "@shopify/shopify-api";
 import Koa from "koa";
 import next from "next";
@@ -9,6 +9,7 @@ import Router from "koa-router";
 import fs from "fs";
 import { Session } from "@shopify/shopify-api/dist/auth/session/index.js";
 
+const { verifyRequest } = "@shopify/koa-shopify-auth";
 dotenv.config();
 const port = parseInt(process.env.PORT, 10) || 8081;
 const dev = process.env.NODE_ENV !== "production";
