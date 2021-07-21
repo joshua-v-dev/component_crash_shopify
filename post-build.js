@@ -1,18 +1,18 @@
-const fs = require("fs");
+import { writeFileSync, readFileSync } from "fs";
 
 /**
  * Copies the `.module.js` output from Microbundle into `.mjs`
  * for use in Node.
  */
 function copyModuleOutput() {
-  fs.writeFileSync(
+  writeFileSync(
     `${process.cwd()}/dist/index.mjs`,
-    fs.readFileSync(`${process.cwd()}/dist/index.module.js`)
+    readFileSync(`${process.cwd()}/dist/index.module.js`)
   );
 
-  fs.writeFileSync(
+  writeFileSync(
     `${process.cwd()}/dist/index.mjs.map`,
-    fs.readFileSync(`${process.cwd()}/dist/index.module.js.map`)
+    readFileSync(`${process.cwd()}/dist/index.module.js.map`)
   );
 }
 
