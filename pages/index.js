@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable shopify/jsx-no-complex-expressions */
 import React, { useState, useEffect } from "react";
@@ -5,7 +6,7 @@ import { ResourcePicker } from "@shopify/app-bridge-react";
 import ProductEmptyState from "../components/ProductEmptyState";
 import ProductPage from "../components/ProductPage";
 
-const index = ({ shopOrigin }) => {
+const Index = ({ shopOrigin }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [products, setProducts] = useState([]);
   const [productsId, setProductsId] = useState([]);
@@ -49,4 +50,4 @@ const index = ({ shopOrigin }) => {
   );
 };
 
-export default index;
+export default Index;
