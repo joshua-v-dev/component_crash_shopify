@@ -2,6 +2,8 @@
   "name": "shopify-app-node",
   "version": "1.0.0",
   "description": "Shopify's node app for CLI tool",
+  "main": "index.js",
+  "type":"module",
   "exports": {
     ".": {
       "browser": "./dist/index.module.js",
