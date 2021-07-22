@@ -1,3 +1,4 @@
+/* eslint-disable shopify/jsx-no-hardcoded-content */
 import { Layout, Page, TextStyle, SettingToggle } from "@shopify/polaris";
 import React from "react";
 

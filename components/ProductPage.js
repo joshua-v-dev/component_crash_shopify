@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { Page } from "@shopify/polaris";
 import ProductList from "../components/ProductList";
 import React from "react";

@@ -4,10 +4,9 @@ module.exports = {
     "plugin:shopify/polaris",
     "plugin:shopify/jest",
     "plugin:shopify/webpack",
+    "plugin:react-hooks/recommended",
   ],
-  rules: {
-    "import/no-unresolved": "off",
-  },
+  parser: "babel-eslint",
   overrides: [
     {
       files: ["*.test.*"],
@@ -23,11 +22,14 @@ module.exports = {
   rules: {
     "no-var": "error",
     semi: "error",
-    indent: "error",
+
     "no-multi-spaces": "error",
     "space-in-parens": "error",
     "no-multiple-empty-lines": "error",
     "prefer-const": "error",
     "no-use-before-define": "error",
+    "import/no-unresolved": "off",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn", // <--- THIS IS THE NEW RULE
   },
 };

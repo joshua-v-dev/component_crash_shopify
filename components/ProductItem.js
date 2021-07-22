@@ -1,3 +1,5 @@
+/* eslint-disable shopify/jsx-no-hardcoded-content */
+/* eslint-disable react/prop-types */
 import { ResourceList, Stack, TextStyle, Thumbnail } from "@shopify/polaris";
 import React from "react";
 import { HideMinor } from "@shopify/polaris-icons";

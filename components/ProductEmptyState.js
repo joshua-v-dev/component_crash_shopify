@@ -1,3 +1,5 @@
+/* eslint-disable shopify/jsx-no-hardcoded-content */
+/* eslint-disable react/prop-types */
 import React from "react";
 import { Card, EmptyState } from "@shopify/polaris";
 

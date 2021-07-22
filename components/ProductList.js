@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { Card, ResourceList } from "@shopify/polaris";
 import React from "react";
 import ProductItem from "./ProductItem";
