@@ -90,7 +90,8 @@
     "react-test-renderer": "16.14.0"
   },
   "engines": {
-    "node": "v16.5.0"
+    "node": "v16.5.0",
+    "npm": "v7.20.0"
   },
   "lint-staged": {
     "*.{js,css,md}": "prettier --write"
