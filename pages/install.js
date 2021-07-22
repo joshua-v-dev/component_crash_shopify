@@ -14,7 +14,7 @@ function install() {
             content: "Install",
             onAction: handleAction,
           }}
-          enabled={true}
+          enabled
         >
           The banner script is{" "}
           <TextStyle variation="strong">uninstalled</TextStyle>
